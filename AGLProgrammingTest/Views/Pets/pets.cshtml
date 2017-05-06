@@ -1,0 +1,31 @@
+﻿@model AGL.Models.TransactionModels.PetsByGenderResponse
+@{
+    ViewBag.Title = "pets";
+}
+<html>
+<head></head>
+<body>
+    @if (Model.Errors.Count == 0)
+    {
+        foreach (var petsByGender in Model.PetsByGenderList)
+        {
+            <h3>@petsByGender.Gender</h3>
+            <ul>
+                @foreach (var pet in petsByGender.petsList)
+                {
+                    <li>@pet</li>
+                }
+
+            </ul>
+        }
+    }
+    else
+    {
+        <p>An error occurred.Please try again later</p>
+        foreach (var error in Model.Errors)
+        {
+            <p> @error.StatusCode: Message: @error.ErrorMessage</p>
+        }
+    }
+</body>
+</html>
