@@ -81,13 +81,11 @@ namespace AGL.MVC.Tests
             var responseModel = (PetsByGenderResponse)viewresult.Model;
 
             // Assert
-            Assert.AreEqual("pets", viewresult.ViewName);
-            Assert.AreEqual(typeof(PetsByGenderResponse), viewresult.Model.GetType());
             Assert.Greater(responseModel.PetsByGenderList.Count, 0);
         }
 
         [Test]
-        public void WhenUnhandledExceptionInController_ResponseContainsErrors()
+        public void WhenUnhandledExceptionOccursInController_ResponseContainsErrors()
         {
             //Arrange
             PetsController controllerUnderTest = new PetsController(_moqPetsBusinesslogic.Object);
@@ -98,8 +96,7 @@ namespace AGL.MVC.Tests
             var responseModel = (PetsByGenderResponse)viewresult.Model;
             
             // Assert
-            Assert.AreEqual("pets", viewresult.ViewName);
-            Assert.IsTrue(responseModel.Errors.Any(error => error.ErrorMessage == "object reference not set to instance"));
+            Assert.IsTrue(responseModel.Errors.Any(error => error.ErrorMessage == "object reference not set to instance"),"");
         }
     }
 }

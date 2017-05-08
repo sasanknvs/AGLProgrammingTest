@@ -24,7 +24,7 @@ namespace AGL.DataAccess
             _client = client;
         }
 
-        public OwnerPetsData RetrievePets() // remove baseuri and resource uri
+        public OwnerPetsData RetrievePets()
         {
             OwnerPetsData ownerPetsData = new OwnerPetsData();
             IRestRequest request;
@@ -49,8 +49,8 @@ namespace AGL.DataAccess
                 }
             }
 
-            //RestSharp.dll returns all the exception in the RestResponse.ErrorException object.
-            // Hence cant catch specific exceptions except the generic excpetion. 
+            //RestSharp.dll returns all the exceptions in the RestResponse.ErrorException object.
+            // Hence handling only generic exceptions
             catch (Exception ex)
             {
                 ownerPetsData.Errors.Add(new Error { ErrorMessage = ex.Message, StatusCode = HttpStatusCode.InternalServerError });
