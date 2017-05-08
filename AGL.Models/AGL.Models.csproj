@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityModels\Error.cs" />
     <Compile Include="EntityModels\OwnerPetsData.cs" />
     <Compile Include="EntityModels\Owners.cs" />
     <Compile Include="EntityModels\Pets.cs" />

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace AGL.Models.EntityModels
 {
@@ -29,11 +24,5 @@ namespace AGL.Models.EntityModels
             get { return _owners; }
             set { _owners = value; }
         }
-    }
-
-    public class Error
-    {
-        public HttpStatusCode StatusCode { get; set; }
-        public string ErrorMessage { get; set; }
     }
 }
