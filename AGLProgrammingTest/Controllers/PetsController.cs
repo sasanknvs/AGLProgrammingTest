@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace AGLProgrammingTest.Controllers
 {
-    //add exception filter
+    //Pets controller
     public class PetsController : Controller
     {
         private IPetsBusinesslogic _petsBusinesslogic;
@@ -22,10 +22,12 @@ namespace AGLProgrammingTest.Controllers
             PetsByGenderResponse petsByGenderResponse = new PetsByGenderResponse();
             try
             {
+                // call business logic layer
                 petsByGenderResponse = _petsBusinesslogic.RetreivePetsByType(petType);
             }
             catch (Exception exception)
             {
+                // Add errors when an exception ocurred
                 petsByGenderResponse.Errors.Add(new AGL.Models.EntityModels.Error{ ErrorMessage = exception.Message });
             }
             return View("pets", petsByGenderResponse);

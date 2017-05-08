@@ -8,6 +8,9 @@ using System.Linq;
 
 namespace AGL.BusinessLogic
 {
+    /// <summary>
+    /// Business logic layer
+    /// </summary>
     public class PetsBusinesslogic : IPetsBusinesslogic
     {
         private IPetsDataAccess _petsDataAccess;
@@ -18,6 +21,7 @@ namespace AGL.BusinessLogic
                 throw new ArgumentException();
             _petsDataAccess = petsDataAccess;
         }
+
 
         public PetsByGenderResponse RetreivePetsByType(string petType)
         {
@@ -44,6 +48,7 @@ namespace AGL.BusinessLogic
                 }
                 else
                 {
+                    // Map the errors to the response
                     petsByGenderResponse.Errors = ownerPetsData.Errors;
                 }
                 
@@ -55,6 +60,11 @@ namespace AGL.BusinessLogic
             return petsByGenderResponse;
         }
 
+        /// <summary>
+        /// Group pets by Owner's gender
+        /// </summary>
+        /// <param name="ownerPetsData"></param>
+        /// <returns></returns>
         public Dictionary<string,List<List<Pet>>> GroupPetsByOwnerGender(OwnerPetsData ownerPetsData)
         {
             Dictionary<string, List<List<Pet>>> ownerpetsDic = new Dictionary<string, List<List<Pet>>>();
@@ -71,6 +81,11 @@ namespace AGL.BusinessLogic
             return ownerpetsDic;
         }
 
+        /// <summary>
+        /// Flatten the list of pets of different owners
+        /// </summary>
+        /// <param name="petsGroups"></param>
+        /// <returns></returns>
         public Dictionary<string, List<Pet>> FlattenPetsByGenderList(Dictionary<string, List<List<Pet>>> petsGroups)
         {
             Dictionary<string, List<Pet>> petsByGender = new Dictionary<string, List<Pet>>();
@@ -87,6 +102,12 @@ namespace AGL.BusinessLogic
             return petsByGender;
         }
 
+        /// <summary>
+        /// Filter the list of pets by pet type
+        /// </summary>
+        /// <param name="petsGroups"></param>
+        /// <param name="petType"></param>
+        /// <returns></returns>
         public List<PetsByGender> FilterPetsByTypeandSortByName(Dictionary<string, List<Pet>> petsGroups, string petType)
         {
             List<PetsByGender> petsByGenderList = new List<PetsByGender>();
@@ -101,7 +122,6 @@ namespace AGL.BusinessLogic
 
                 petsByGenderList.Add(petsByGender);
             }
-
             return petsByGenderList;
         }
     }

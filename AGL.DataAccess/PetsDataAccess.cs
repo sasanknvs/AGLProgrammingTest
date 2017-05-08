@@ -8,6 +8,9 @@ using System.Net;
 
 namespace AGL.DataAccess
 {
+    /// <summary>
+    /// Data Access layer
+    /// </summary>
     public class PetsDataAccess : IPetsDataAccess
     {
         private IRestClient _client;
@@ -24,6 +27,10 @@ namespace AGL.DataAccess
             _client = client;
         }
 
+        /// <summary>
+        /// Retrieve pets by calling the api
+        /// </summary>
+        /// <returns></returns>
         public OwnerPetsData RetrievePets()
         {
             OwnerPetsData ownerPetsData = new OwnerPetsData();
@@ -34,14 +41,17 @@ namespace AGL.DataAccess
                 _client.BaseUrl = new Uri(PetsBaseUri);
                 request = new RestRequest(ResourceUri, Method.GET);
 
+                // call the api
                 var restResponse = _client.Execute<List<Owners>>(request);
 
+                // Api returns successful response
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     ownerPetsData.Owners = restResponse.Data;
                 }
                 else
                 {
+                    // Api returned invalid response, map the exception
                     Error error = new Error();
                     error.ErrorMessage = restResponse.ErrorException.Message;
                     error.StatusCode = restResponse.StatusCode;
