@@ -406,5 +406,102 @@ namespace AGL.BusinessLogic.Tests
             //Assert
             Assert.IsTrue(petsByGender.Errors.Any(error => error.ErrorMessage == "The remote name could not be resolved: 'agl-developer-test.azurewebsites.net'"));
         }
+
+        [Test]
+        public void RetrievePetByType_WhenAPIReturnsValidResponse_ReturnPetsGroupedByGender()
+        {
+            // Arrange
+            OwnerPetsData ownerPetsData = new OwnerPetsData();
+            ownerPetsData.Owners = new List<Owners>()
+            {
+                new Owners()
+                {
+                    Age=20,
+                    Gender="Male",
+                    Name="John",
+                    Pets=new List<Pet>()
+                    {
+                        new Pet() { Name="Tom",Type="Cat" },
+                        new Pet() { Name="Garfield",Type="Dog"}
+                    }
+                },
+                new Owners()
+                {
+                    Age=30,
+                    Gender="Female",
+                    Name="John",
+                    Pets=new List<Pet>()
+                    {
+                        new Pet() { Name="Tomy",Type="Cat" },
+                    }
+                },
+                new Owners()
+                {
+                    Age=20,
+                    Gender="Male",
+                    Name="Johnny",
+                    Pets=new List<Pet>()
+                    {
+                        new Pet() { Name="Fido",Type="Cat" },
+                    }
+                }
+            };
+            _moqPetsDataAccess.Setup(m => m.RetrievePets()).Returns(ownerPetsData);
+
+            // Act
+            PetsByGenderResponse petsByGender = _petsBusinessLogic.RetreivePetsByType("Cat");
+
+            //Assert
+            Assert.IsTrue(petsByGender.PetsByGenderList[0].Gender == "Male" && petsByGender.PetsByGenderList[1].Gender == "Female");
+        }
+
+        [TestCase("Male",2)]
+        [TestCase("Female", 1)]
+        public void RetrievePetByType_WhenAPIReturnsValidResponse_ReturnsValidPetsCountForEachGender(string ownerGender,int petsCount)
+        {
+            // Arrange
+            OwnerPetsData ownerPetsData = new OwnerPetsData();
+            ownerPetsData.Owners = new List<Owners>()
+            {
+                new Owners()
+                {
+                    Age=20,
+                    Gender="Male",
+                    Name="John",
+                    Pets=new List<Pet>()
+                    {
+                        new Pet() { Name="Tom",Type="Cat" },
+                        new Pet() { Name="Garfield",Type="Dog"}
+                    }
+                },
+                new Owners()
+                {
+                    Age=30,
+                    Gender="Female",
+                    Name="John",
+                    Pets=new List<Pet>()
+                    {
+                        new Pet() { Name="Tomy",Type="Cat" },
+                    }
+                },
+                new Owners()
+                {
+                    Age=20,
+                    Gender="Male",
+                    Name="Johnny",
+                    Pets=new List<Pet>()
+                    {
+                        new Pet() { Name="Fido",Type="Cat" },
+                    }
+                }
+            };
+            _moqPetsDataAccess.Setup(m => m.RetrievePets()).Returns(ownerPetsData);
+
+            // Act
+            PetsByGenderResponse petsByGender = _petsBusinessLogic.RetreivePetsByType("Cat");
+
+            //Assert
+            Assert.IsTrue(petsByGender.PetsByGenderList.Where(p => p.Gender == ownerGender).First().petsList.Count == petsCount);
+        }
     }
 }
