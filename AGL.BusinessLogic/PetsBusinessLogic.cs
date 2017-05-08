@@ -44,15 +44,6 @@ namespace AGL.BusinessLogic
                 }
                 else
                 {
-                    if (ownerPetsData.Owners.Count == 0 && ownerPetsData.Errors.Count == 0)
-                    {
-                        petsByGenderResponse.Errors.Add(new Error()
-                        {
-                            StatusCode = System.Net.HttpStatusCode.NotFound,
-                            ErrorMessage = string.Format("Sorry. There are no {0} adopted by the owners", petType)
-                        }
-                        );
-                    }
                     petsByGenderResponse.Errors = ownerPetsData.Errors;
                 }
                 

@@ -11,8 +11,6 @@ namespace AGL.DataAccess.Tests.IntegrationTests
     public class PetsDataAccessIntegrationTests
     {
         private PetsDataAccess _petsDataAccess;
-        private string _baseUri = ConfigurationManager.AppSettings["BaseUri"];
-        private string _resourceUri = ConfigurationManager.AppSettings["RetrievePetsUri"];
 
         [SetUp]
         public void Setup()
@@ -27,9 +25,7 @@ namespace AGL.DataAccess.Tests.IntegrationTests
             OwnerPetsData ownerPetsData = _petsDataAccess.RetrievePets();
 
             // Assert
-            Assert.IsNotNull(ownerPetsData);
-            Assert.AreEqual(0, ownerPetsData.Errors.Count);
-            Assert.Greater(ownerPetsData.Owners.Count, 0);
+            Assert.IsTrue(ownerPetsData.Errors.Count == 0 && ownerPetsData.Owners.Count > 0);
         }
 
         [Test]
@@ -44,9 +40,6 @@ namespace AGL.DataAccess.Tests.IntegrationTests
             OwnerPetsData ownerPetsData = _petsDataAccess.RetrievePets();
         
             // Assert
-            Assert.IsNotNull(ownerPetsData);
-            Assert.Greater(ownerPetsData.Errors.Count,0);
-            Assert.IsTrue(ownerPetsData.Errors.Count() > 0);
             Assert.IsTrue(ownerPetsData.Errors.Any(error => error.StatusCode == HttpStatusCode.NotFound
                                                             && !string.IsNullOrEmpty(error.ErrorMessage)));
         }
@@ -62,9 +55,6 @@ namespace AGL.DataAccess.Tests.IntegrationTests
             OwnerPetsData ownerPetsData = _petsDataAccess.RetrievePets();
 
             // Assert
-            Assert.IsNotNull(ownerPetsData);
-            Assert.Greater(ownerPetsData.Errors.Count, 0);
-            Assert.IsTrue(ownerPetsData.Errors.Count() > 0);
             Assert.IsTrue(ownerPetsData.Errors.Any(error => error.StatusCode == 0
                                                             && !string.IsNullOrEmpty(error.ErrorMessage)));
         }

@@ -66,11 +66,39 @@ namespace AGL.DataAccess.Tests
             OwnerPetsData ownerPetsData = _petsDataAccess.RetrievePets();
 
             // Assert
-            Assert.IsNotNull(ownerPetsData);
+            Assert.AreEqual(0, ownerPetsData.Errors.Count);
+        }
+
+        [Test]
+        public void WhenCalled_ApiReturnsValidResponse_ValidateValidIfResourceUriIsCalled()
+        {
+            // Arrange
+            string resource = string.Empty;
+            var Owners = new List<Owners>()
+            {
+                    new Owners()
+                    {
+                        age=20,
+                        gender ="Male",
+                        name ="Sasank",
+                        pets =new List<Pet>() { new Pet() { name="Tommy",type ="Dog"} }
+                    }
+            };
+
+            var restResponse = new RestResponse<List<Owners>>()
+            {
+                Data = Owners,
+                StatusCode = HttpStatusCode.OK
+            };
+
+            _moqClient.Setup(m => m.Execute<List<Owners>>(It.IsAny<IRestRequest>())).Returns(restResponse).
+                Callback<IRestRequest>(rq => { resource = rq.Resource; });
+
+            //Act
+            OwnerPetsData ownerPetsData = _petsDataAccess.RetrievePets();
+
+            // Assert
             Assert.AreEqual(_resourceUri, resource);
-            Assert.IsTrue(ownerPetsData.Errors != null && ownerPetsData.Errors.Count == 0);
-            Assert.AreEqual(1, ownerPetsData.Owners.Count());
-            Assert.IsTrue(ownerPetsData.Owners.Any(owner => owner.name == "Sasank" && owner.pets.Count > 0));
         }
 
         [TestCase(HttpStatusCode.NotFound,"Resource not found")]
@@ -91,8 +119,6 @@ namespace AGL.DataAccess.Tests
             OwnerPetsData ownerPetsData = _petsDataAccess.RetrievePets();
 
             // Assert
-            Assert.IsNotNull(ownerPetsData);
-            Assert.IsTrue(ownerPetsData.Errors.Count() > 0);
             Assert.IsTrue(ownerPetsData.Errors.Any(error => error.StatusCode == statusCode && error.ErrorMessage == errorMessage));
         }
 
@@ -107,8 +133,6 @@ namespace AGL.DataAccess.Tests
 
 
             //Assert
-            Assert.IsNotNull(ownerPetsData);
-            Assert.IsTrue(ownerPetsData.Errors.Count > 0);
             Assert.IsTrue(ownerPetsData.Errors.Any(e => e.ErrorMessage == "Object reference not set to an instance"));
         }
 
