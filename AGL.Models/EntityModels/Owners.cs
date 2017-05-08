@@ -1,15 +1,20 @@
 ﻿using System.Collections.Generic;
+using RestSharp.Serializers;
 
 namespace AGL.Models.EntityModels
 {
     public class Owners
     {
-        public int age { get; set; }
+        [SerializeAs(Name ="age")]
+        public int Age { get; set; }
 
-        public string name { get; set; }
+        [SerializeAs(Name = "name")]
+        public string Name { get; set; }
 
-        public string gender { get; set; }
+        [SerializeAs(Name = "gender")]
+        public string Gender { get; set; }
 
-        public List<Pet> pets{ get; set; }
+        [SerializeAs(Name = "pets")]
+        public List<Pet> Pets{ get; set; }
     }
 }

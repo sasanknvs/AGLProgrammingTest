@@ -1,9 +1,13 @@
-﻿namespace AGL.Models.EntityModels
+﻿using RestSharp.Serializers;
+
+namespace AGL.Models.EntityModels
 {
     public class Pet
     {
-        public string name { get; set; }
+        [SerializeAs(Name = "name")]
+        public string Name { get; set; }
 
-        public string type { get; set; }
+        [SerializeAs(Name = "name")]
+        public string Type { get; set; }
     }
 }

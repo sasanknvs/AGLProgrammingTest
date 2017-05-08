@@ -46,10 +46,10 @@ namespace AGL.DataAccess.Tests
             {
                     new Owners()
                     {
-                        age=20,
-                        gender ="Male",
-                        name ="Sasank",
-                        pets =new List<Pet>() { new Pet() { name="Tommy",type ="Dog"} }
+                        Age=20,
+                        Gender ="Male",
+                        Name ="Sasank",
+                        Pets =new List<Pet>() { new Pet() { Name="Tommy",Type ="Dog"} }
                     }
             };
             
@@ -78,10 +78,10 @@ namespace AGL.DataAccess.Tests
             {
                     new Owners()
                     {
-                        age=20,
-                        gender ="Male",
-                        name ="Sasank",
-                        pets =new List<Pet>() { new Pet() { name="Tommy",type ="Dog"} }
+                        Age=20,
+                        Gender ="Male",
+                        Name ="Sasank",
+                        Pets =new List<Pet>() { new Pet() { Name="Tommy",Type ="Dog"} }
                     }
             };
 

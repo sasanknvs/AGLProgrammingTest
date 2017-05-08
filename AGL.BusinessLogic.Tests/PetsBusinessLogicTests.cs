@@ -31,33 +31,33 @@ namespace AGL.BusinessLogic.Tests
             {
                 new Owners()
                 {
-                    age=20,
-                    gender=gender,
-                    name="John",
-                    pets=new List<Pet>()
+                    Age=20,
+                    Gender=gender,
+                    Name="John",
+                    Pets=new List<Pet>()
                     {
-                        new Pet() { name="Tom",type="Cat" },
-                        new Pet() { name="Garfield",type="Dog"}
+                        new Pet() { Name="Tom",Type="Cat" },
+                        new Pet() { Name="Garfield",Type="Dog"}
                     }
                 },
                 new Owners()
                 {
-                    age=30,
-                    gender=gender,
-                    name="John",
-                    pets=new List<Pet>()
+                    Age=30,
+                    Gender=gender,
+                    Name="John",
+                    Pets=new List<Pet>()
                     {
-                        new Pet() { name="Tomy",type="Cat" },
+                        new Pet() { Name="Tomy",Type="Cat" },
                     }
                 },
                 new Owners()
                 {
-                    age=20,
-                    gender=gender,
-                    name="Johnny",
-                    pets=new List<Pet>()
+                    Age=20,
+                    Gender=gender,
+                    Name="Johnny",
+                    Pets=new List<Pet>()
                     {
-                        new Pet() { name="Fido",type="Cat" },
+                        new Pet() { Name="Fido",Type="Cat" },
                     }
                 }
             };
@@ -78,31 +78,31 @@ namespace AGL.BusinessLogic.Tests
             {
                 new Owners()
                 {
-                    age=20,
-                    gender="Male",
-                    name="John",
-                    pets=new List<Pet>()
+                    Age=20,
+                    Gender="Male",
+                    Name="John",
+                    Pets=new List<Pet>()
                     {
-                        new Pet() { name="Tom",type="Cat" },
-                        new Pet() { name="Garfield",type="Dog"}
+                        new Pet() { Name="Tom",Type="Cat" },
+                        new Pet() { Name="Garfield",Type="Dog"}
                     }
                 },
                 new Owners()
                 {
-                    age=30,
-                    gender="Female",
-                    name="John",
-                    pets=new List<Pet>()
+                    Age=30,
+                    Gender="Female",
+                    Name="John",
+                    Pets=new List<Pet>()
                     {
-                        new Pet() { name="Tomy",type="Cat" },
+                        new Pet() { Name="Tomy",Type="Cat" },
                     }
                 },
                 new Owners()
                 {
-                    age=20,
-                    gender="Male",
-                    name="Johnny",
-                    pets=null
+                    Age=20,
+                    Gender="Male",
+                    Name="Johnny",
+                    Pets=null
                 }
             };
 
@@ -122,24 +122,24 @@ namespace AGL.BusinessLogic.Tests
             {
                 new Owners()
                 {
-                    age=20,
-                    gender="Male",
-                    name="John",
-                    pets=null
+                    Age=20,
+                    Gender="Male",
+                    Name="John",
+                    Pets=null
                 },
                 new Owners()
                 {
-                    age=30,
-                    gender="Female",
-                    name="John",
-                    pets=null
+                    Age=30,
+                    Gender="Female",
+                    Name="John",
+                    Pets=null
                 },
                 new Owners()
                 {
-                    age=20,
-                    gender="Male",
-                    name="Johnny",
-                    pets=null
+                    Age=20,
+                    Gender="Male",
+                    Name="Johnny",
+                    Pets=null
                 }
             };
 
@@ -159,33 +159,33 @@ namespace AGL.BusinessLogic.Tests
             {
                 new Owners()
                 {
-                    age=20,
-                    gender="Male",
-                    name="John",
-                    pets=new List<Pet>()
+                    Age=20,
+                    Gender="Male",
+                    Name="John",
+                    Pets=new List<Pet>()
                     {
-                        new Pet() { name="Tom",type="Cat" },
-                        new Pet() { name="Garfield",type="Dog"}
+                        new Pet() { Name="Tom",Type="Cat" },
+                        new Pet() { Name="Garfield",Type="Dog"}
                     }
                 },
                 new Owners()
                 {
-                    age=30,
-                    gender="Female",
-                    name="John",
-                    pets=new List<Pet>()
+                    Age=30,
+                    Gender="Female",
+                    Name="John",
+                    Pets=new List<Pet>()
                     {
-                        new Pet() { name="Tomy",type="Cat" },
+                        new Pet() { Name="Tomy",Type="Cat" },
                     }
                 },
                 new Owners()
                 {
-                    age=20,
-                    gender="Male",
-                    name="Johnny",
-                    pets=new List<Pet>()
+                    Age=20,
+                    Gender="Male",
+                    Name="Johnny",
+                    Pets=new List<Pet>()
                     {
-                        new Pet() { name="Fido",type="Cat" },
+                        new Pet() { Name="Fido",Type="Cat" },
                     }
                 }
             };
@@ -207,33 +207,33 @@ namespace AGL.BusinessLogic.Tests
             {
                 new Owners()
                 {
-                    age=20,
-                    gender="Male",
-                    name="John",
-                    pets=new List<Pet>()
+                    Age=20,
+                    Gender="Male",
+                    Name="John",
+                    Pets=new List<Pet>()
                     {
-                        new Pet() { name="Tom",type="Cat" },
-                        new Pet() { name="Garfield",type="Dog"}
+                        new Pet() { Name="Tom",Type="Cat" },
+                        new Pet() { Name="Garfield",Type="Dog"}
                     }
                 },
                 new Owners()
                 {
-                    age=30,
-                    gender="Female",
-                    name="John",
-                    pets=new List<Pet>()
+                    Age=30,
+                    Gender="Female",
+                    Name="John",
+                    Pets=new List<Pet>()
                     {
-                        new Pet() { name="Tomy",type="Cat" },
+                        new Pet() { Name="Tomy",Type="Cat" },
                     }
                 },
                 new Owners()
                 {
-                    age=20,
-                    gender="Male",
-                    name="Johnny",
-                    pets=new List<Pet>()
+                    Age=20,
+                    Gender="Male",
+                    Name="Johnny",
+                    Pets=new List<Pet>()
                     {
-                        new Pet() { name="Fido",type="Cat" },
+                        new Pet() { Name="Fido",Type="Cat" },
                     }
                 }
             };
@@ -255,18 +255,18 @@ namespace AGL.BusinessLogic.Tests
                             {
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Fido",type="Cat" },
-                                    new Pet() { name="Fidi",type="Dog" },
+                                    new Pet() { Name="Fido",Type="Cat" },
+                                    new Pet() { Name="Fidi",Type="Dog" },
                                 },
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Tom",type="Cat" },
-                                    new Pet() { name="Garfield",type="Dog"}
+                                    new Pet() { Name="Tom",Type="Cat" },
+                                    new Pet() { Name="Garfield",Type="Dog"}
                                 },
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Glen",type="Dog"},
-                                    new Pet() { name="ceasar",type="Dog"}
+                                    new Pet() { Name="Glen",Type="Dog"},
+                                    new Pet() { Name="ceasar",Type="Dog"}
                                 }
                             }
                             );
@@ -275,15 +275,15 @@ namespace AGL.BusinessLogic.Tests
                             {
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Max",type="Cat" },
+                                    new Pet() { Name="Max",Type="Cat" },
                                 },
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Tom",type="Cat" },
+                                    new Pet() { Name="Tom",Type="Cat" },
                                 },
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Alice",type="Dog"}
+                                    new Pet() { Name="Alice",Type="Dog"}
                                 }
                             }
                             );
@@ -305,18 +305,18 @@ namespace AGL.BusinessLogic.Tests
                             {
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Fido",type="Cat" },
-                                    new Pet() { name="Fidi",type="Dog" },
+                                    new Pet() { Name="Fido",Type="Cat" },
+                                    new Pet() { Name="Fidi",Type="Dog" },
                                 },
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Tom",type="Cat" },
-                                    new Pet() { name="Garfield",type="Dog"}
+                                    new Pet() { Name="Tom",Type="Cat" },
+                                    new Pet() { Name="Garfield",Type="Dog"}
                                 },
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Glen",type="Dog"},
-                                    new Pet() { name="ceasar",type="Dog"}
+                                    new Pet() { Name="Glen",Type="Dog"},
+                                    new Pet() { Name="ceasar",Type="Dog"}
                                 }
                             }
                             );
@@ -325,15 +325,15 @@ namespace AGL.BusinessLogic.Tests
                             {
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Max",type="Cat" },
+                                    new Pet() { Name="Max",Type="Cat" },
                                 },
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Tom",type="Cat" },
+                                    new Pet() { Name="Tom",Type="Cat" },
                                 },
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Alice",type="Dog"}
+                                    new Pet() { Name="Alice",Type="Dog"}
                                 }
                             }
                             );
@@ -357,20 +357,20 @@ namespace AGL.BusinessLogic.Tests
             petsGroups.Add("Male",
                                 new List<Pet>
                                 {
-                                    new Pet() { name="Tom",type="Cat" },
-                                    new Pet() { name="Garfield",type="Dog"},
-                                    new Pet() { name="Glen",type="Dog"},
-                                    new Pet() { name="ceasar",type="Dog"},
-                                    new Pet() { name="Fido",type="Cat" },
-                                    new Pet() { name="Fidi",type="Dog" },
+                                    new Pet() { Name="Tom",Type="Cat" },
+                                    new Pet() { Name="Garfield",Type="Dog"},
+                                    new Pet() { Name="Glen",Type="Dog"},
+                                    new Pet() { Name="ceasar",Type="Dog"},
+                                    new Pet() { Name="Fido",Type="Cat" },
+                                    new Pet() { Name="Fidi",Type="Dog" },
                                 }
                             );
 
             petsGroups.Add("Female", new List<Pet>
                                 {
-                                    new Pet() { name="Max",type="Cat" },
-                                    new Pet() { name="Tom",type="Cat" },
-                                    new Pet() { name="Alice",type="Dog"}
+                                    new Pet() { Name="Max",Type="Cat" },
+                                    new Pet() { Name="Tom",Type="Cat" },
+                                    new Pet() { Name="Alice",Type="Dog"}
                                 }
                             );
 

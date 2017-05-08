@@ -69,8 +69,8 @@ namespace AGL.BusinessLogic
         {
             Dictionary<string, List<List<Pet>>> ownerpetsDic = new Dictionary<string, List<List<Pet>>>();
             var ownerGroupedByGender = (from owner in ownerPetsData.Owners
-                                        where owner.pets !=null
-                                        group owner.pets by owner.gender into petsGrp 
+                                        where owner.Pets !=null
+                                        group owner.Pets by owner.Gender into petsGrp 
                                         select new { Gender = petsGrp.Key, Pets = petsGrp.ToList() });
 
             foreach (var genderGrp in ownerGroupedByGender)
@@ -115,8 +115,8 @@ namespace AGL.BusinessLogic
             {
                 PetsByGender petsByGender = new PetsByGender();
                 petsByGender.Gender = gender;
-                petsByGender.petsList = petsGroups[gender].Where(pet => string.Equals(pet.type,petType,StringComparison.InvariantCultureIgnoreCase))
-                                                           .Select(pet => pet.name)
+                petsByGender.petsList = petsGroups[gender].Where(pet => string.Equals(pet.Type,petType,StringComparison.InvariantCultureIgnoreCase))
+                                                           .Select(pet => pet.Name)
                                                            .ToList();
                 petsByGender.petsList.Sort();
 
