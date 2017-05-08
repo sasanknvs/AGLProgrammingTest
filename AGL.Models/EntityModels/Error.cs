@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace AGL.Models
+namespace AGL.Models.EntityModels
 {
     public class Error
     {
